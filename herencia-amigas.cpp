@@ -1,144 +1,132 @@
 /*
+Code created by Francisco Cabral and Erick Alan García Muñoz.
+Created in the programming class on October 13, 2023
 
-Código creado por Francisco Cabral y Erick Alan García Muñoz.
-Creado en la clase de programación el día 13 de Octubre del 2023
+-Copies
+-Friends
+-Inheritance
 
-
--Copias
--Amigas
--Herencia
-
-
---Programación Avanzada --
---Universidad Panamericana--
-
+--Advanced Programming --
+--Panamerican University--
 */
 #include<bits/stdc++.h>
-
-
 using namespace std;
 
 #include <iostream>
 using namespace std;
 
-// Clase base Medico
-class Medico {
+// Base class Doctor
+class Doctor {
 protected:
-  // Atributos de Medico
-  string nombre;
-  int edad;
-  string especialidad;
+  // Doctor attributes
+  string name;
+  int age;
+  string specialty;
 public:
-  // Constructor de Medico
-  Medico(string n, int e, string esp) {
-    this->nombre = n;
-    this->edad = e;
-    this->especialidad = esp;
-    cout << "Constructor de Medico" << endl;
+  // Doctor constructor
+  Doctor(string n, int e, string spec) {
+    this->name = n;
+    this->age = e;
+    this->specialty = spec;
+    cout << "Doctor Constructor" << endl;
   }
-  // Método trabajar de Medico
-  void trabajar() {
-    cout << "Estoy ejerciendo mi profesion."<<endl;
+  // Doctor work method
+  void work() {
+    cout << "I am practicing my profession." << endl;
   }
-  // Destructor de Medico
-  virtual ~Medico() {
-    cout << "Destructor de Medico" << endl;
+  // Doctor destructor
+  virtual ~Doctor() {
+    cout << "Doctor Destructor" << endl;
   }
 };
 
-// Clase base Ingeniero
-class Ingeniero {
+// Base class Engineer
+class Engineer {
 protected:
-  // Atributos de Ingeniero
-  string nombre;
-  int edad;
-  string especialidad;
+  // Engineer attributes
+  string name;
+  int age;
+  string specialty;
 public:
-  // Constructor de Ingeniero
-  Ingeniero(string n, int e, string esp) {
-    this->nombre = n;
-    this->edad = e;
-    this->especialidad = esp;
-    cout << "Constructor de Ingeniero" << endl;
+  // Engineer constructor
+  Engineer(string n, int e, string spec) {
+    this->name = n;
+    this->age = e;
+    this->specialty = spec;
+    cout << "Engineer Constructor" << endl;
   }
-  // Método trabajar de Ingeniero
-  void trabajar() {
-    cout << "Actualmente soy una persona profesionista y me encanta aprender."<<endl;
+  // Engineer work method
+  void work() {
+    cout << "I am currently a professional and I love learning." << endl;
   }
-  // Destructor de Ingeniero
-  virtual ~Ingeniero() {
-    cout << "Destructor de Ingeniero" << endl;
+  // Engineer destructor
+  virtual ~Engineer() {
+    cout << "Engineer Destructor" << endl;
   }
 };
 
-// Clase derivada Cirujano
-class Cirujano: public Medico, public Ingeniero {
+// Derived class Surgeon
+class Surgeon: public Doctor, public Engineer {
 public:
-  // Constructor de Cirujano
-  Cirujano(string n, int e, string esp):Medico(n, e, esp), Ingeniero(n, e, esp) {
-    cout << "Constructor de Cirujano" << endl;
+  // Surgeon constructor
+  Surgeon(string n, int e, string spec): Doctor(n, e, spec), Engineer(n, e, spec) {
+    cout << "Surgeon Constructor" << endl;
   }
-  // Método operar de Cirujano
-  void operar() {
-    // Llamando a los métodos trabajar de las clases base
-    Medico::trabajar();
-   
-    Ingeniero::trabajar();
-    // Mostrando un mensaje propio
-    
-    cout << "Especializado en cirujia, ahora ire a operar." << endl;
+  // Surgeon operate method
+  void operate() {
+    // Calling work methods from base classes
+    Doctor::work();
+    Engineer::work();
+    // Showing a specific message
+    cout << "Specialized in surgery, now I will go to operate." << endl;
   }
-  // Destructor de Cirujano
-  ~Cirujano() {
-    cout << "Destructor de Cirujano" << endl;
+  // Surgeon destructor
+  ~Surgeon() {
+    cout << "Surgeon Destructor" << endl;
   }
 };
 
-// Clase derivada Programador
-class Programador: public Medico, public Ingeniero {
+// Derived class Programmer
+class Programmer: public Doctor, public Engineer {
 public:
-  // Constructor de Programador
-  Programador(string n, int e, string esp):Medico(n, e, esp), Ingeniero(n, e, esp) {
-    cout << "Constructor de Programador" << endl;
+  // Programmer constructor
+  Programmer(string n, int e, string spec): Doctor(n, e, spec), Engineer(n, e, spec) {
+    cout << "Programmer Constructor" << endl;
   }
-  // Método trabajar de Programador
-  void trabajar() {
-    // Llamando a los métodos trabajar de las clases base con distintos nombres
-    Medico::trabajar();
-   
-    Ingeniero::trabajar();
-    
-    // Mostrando un mensaje propio
-    cout << "Trabajar como programador, en el lenguaje c++" << endl;
+  // Programmer work method
+  void work() {
+    // Calling work methods from base classes with different names
+    Doctor::work();
+    Engineer::work();
+    // Showing a specific message
+    cout << "Working as a programmer, in the C++ language." << endl;
   }
-  // Destructor de Programador
-  ~Programador() {
-    cout << "Destructor de Programador" << endl;
+  // Programmer destructor
+  ~Programmer() {
+    cout << "Programmer Destructor" << endl;
   }
 };
 
 int main() {
-  // Creando un objeto de la clase Cirujano
-  Cirujano c("Carlos", 35, "Cardiologia");
-  
-   // Llamando al método operar de la clase Cirujano
-   cout<<"-Medico: ";
-   c.operar();
-   cout<<"\n\n";
+  // Creating an object of the Surgeon class
+  Surgeon c("Carlos", 35, "Cardiology");
 
-   cout<<"\n\n";
-   cout<<"\n\n";
-  
-   // Creando un objeto de la clase Programador
-  
-   Programador p("Pedro", 25, "Informatica");
-  
-   // Llamando al método trabajar de la clase Programador
-   
-   cout<<"\n\n";
-   cout<<"-Programador: ";
-   p.trabajar();
-   cout<<"\n\n";
-  
-   return 0;
+  // Calling the operate method of the Surgeon class
+  cout << "-Doctor: ";
+  c.operate();
+  cout << "\n\n";
+
+  cout << "\n\n";
+  cout << "\n\n";
+
+  // Creating an object of the Programmer class
+  Programmer p("Pedro", 25, "Informatics");
+
+  // Calling the work method of the Programmer class
+  cout << "\n\n";
+  cout << "-Programmer: ";
+  p.work();
+  cout << "\n\n";
+
+  return 0;
 }
