@@ -1,17 +1,14 @@
 /*
-Erick Alan Garcia Muñoz y Francisco Cabral.
-Código elaborado en el examen 29-11-2023, hecho como examen.
+Erick Alan Garcia Muñoz and Francisco Cabral.
+Code developed on the exam date 29-11-2023, created as an exam.
 
-
-Universidad Panamericana
-clase de programación avanzada.
-
+Panamerican University
+Advanced programming class.
 */
 
-//Archivo Animal.h
+// File Animal.h
 #ifndef ANIMAL_H
 #define ANIMAL_H
-
 
 #include <iostream>
 #include <string>
@@ -19,40 +16,40 @@ using namespace std;
 
 class Animal {
     protected:
-        string nombre;
-        int edad;
-        double peso;
+        string name;
+        int age;
+        double weight;
         string color;
     public:
-        //Constructor parametrizado
+        // Parameterized constructor
         Animal(string n, int e, double p, string c) {
-            this->nombre = n;
-            this->edad = e;
-            this->peso = p;
+            this->name = n;
+            this->age = e;
+            this->weight = p;
             this->color = c;
         }
-        //Destructor
+        // Destructor
         ~Animal() {
-            cout << "El animal " << nombre << " ha sido destruido" << endl;
+            cout << "The animal " << name << " has been destroyed" << endl;
         }
-        //Getters y setters
-        string getNombre() {
-            return nombre;
+        // Getters and setters
+        string getName() {
+            return name;
         }
-        void setNombre(string n) {
-            nombre = n;
+        void setName(string n) {
+            name = n;
         }
-        int getEdad() {
-            return edad;
+        int getAge() {
+            return age;
         }
-        void setEdad(int e) {
-            edad = e;
+        void setAge(int e) {
+            age = e;
         }
-        double getPeso() {
-            return peso;
+        double getWeight() {
+            return weight;
         }
-        void setPeso(double p) {
-            peso = p;
+        void setWeight(double p) {
+            weight = p;
         }
         string getColor() {
             return color;
@@ -60,14 +57,13 @@ class Animal {
         void setColor(string c) {
             color = c;
         }
-        //Métodos propios
-        void comer() {
-            cout << "El animal " << nombre << " está comiendo" << endl;
+        // Own methods
+        void eat() {
+            cout << "The animal " << name << " is eating" << endl;
         }
-        void dormir() {
-            cout << "El animal " << nombre << " está durmiendo" << endl;
-        }
+        void sleep() {
+            cout << "The animal " << name << " is sleeping" << endl;
+        }
 };
 
 #endif
-
