@@ -1,15 +1,15 @@
 /*
 
-Código creado por Francisco Cabral y Erick Alan García Muñoz.
-Creado en la clase de programación el día 04 de Octubre del 2023
+Code created by Francisco Cabral and Erick Alan García Muñoz.
+Created in the programming class on October 4, 2023
 
--Universidad Panamericana. 
--Programacion Avanzada.
+-Panamerican University.
+-Advanced Programming.
 
-4 pilares de la POO----
+4 pillars of OOP ----
 
---Programación Avanzada --
---Universidad Panamericana--
+--Advanced Programming --
+--Panamerican University--
 
 
 
@@ -21,157 +21,157 @@ Creado en la clase de programación el día 04 de Octubre del 2023
 
 using namespace std;
 
-// Clase Abstracta
-class AutomovilesAbstracto{
-    virtual void obtenerinfo() = 0; // Funcion virtual, debe ser implementada por quien desea utilizarla.
+// Abstract Class
+class AbstractAutomobile{
+    virtual void getInfo() = 0; // Virtual function, must be implemented by whoever wants to use it.
 };
 
 
-//clases hijas-----------------------------------------------------------------------------
+// Child classes-----------------------------------------------------------------------------
 
-class Camionetas:AutomovilesAbstracto{  // Camionetas hereda de AutomovilesAbstracto y su vez es clase padre de otras clases.
+class SUVs: public AbstractAutomobile{  // SUVs inherits from AbstractAutomobile and is also a parent class of other classes.
 protected:
-    string Nombre;  // Pasamos Nombre a protected para que sus clases hijas puedan acceder a ellas.
-    string Compania;
-    string Direccion;
-    string Contacto;
-    int Precio;
+    string Name;  // Name made protected so that its child classes can access it.
+    string Company;
+    string Address;
+    string Contact;
+    int Price;
 
 public:
-    // Metodo
-    void presentar(){
-        cout<<"Presentacion: "<<endl;
+    // Method
+    void present(){
+        cout<<"Presentation: "<<endl;
 
-        cout << "\n Nombre: " << Nombre << endl;
-        cout << "\n Compania: " << Compania << endl;
+        cout << "\n Name: " << Name << endl;
+        cout << "\n Company: " << Company << endl;
     }
 
 
-    //segundo metodo
-    void promocion(){
-        cout<< Compania <<", Comuniquese con nosotros al contacto: "<< Contacto <<", o visitenos en: "<<Direccion<<endl;
+    // Second method
+    void promotion(){
+        cout<< Company <<", Contact us at: "<< Contact <<", or visit us at: "<<Address<<endl;
     }
 
 
 
-    Camionetas(string nombre, string compania, string direccion, string contacto, int precio){
-        this->Nombre = nombre;
-        this->Compania = compania;
-        this->Direccion = direccion;
-        this->Contacto =  contacto;
-        this->Precio = precio;
+    SUVs(string name, string company, string address, string contact, int price){
+        this->Name = name;
+        this->Company = company;
+        this->Address = address;
+        this->Contact =  contact;
+        this->Price = price;
 
     }
 
-    // Getters y Setters
-    void SetNombre(string nombre){
-       this-> Nombre = nombre;
+    // Getters and Setters
+    void setName(string name){
+       this-> Name = name;
     }
 
-    string getNombre(){
-        return Nombre;
+    string getName(){
+        return Name;
     }
 
-    void setCompania(string compania){
-        this->Compania = compania;
+    void setCompany(string company){
+        this->Company = company;
     }
 
-    string getCompania(){
-        return Compania;
+    string getCompany(){
+        return Company;
     }
 
-    void setDireccion(string direccion){
-        this->Direccion = direccion;
+    void setAddress(string address){
+        this->Address = address;
     }
 
-    string getDireccion(){
-        return Direccion;
+    string getAddress(){
+        return Address;
     }
 
-    void setContacto(string contacto){
-        this->Contacto = contacto;
+    void setContact(string contact){
+        this->Contact = contact;
     }
 
-    string getContacto(){
-        return Contacto;
+    string getContact(){
+        return Contact;
     }
 
-    void setPrecio(int precio){
-        this->Precio = precio;
+    void setPrice(int price){
+        this->Price = price;
     }
 
-    int getPrecio(){
-        return Precio;
+    int getPrice(){
+        return Price;
     }
 
-    // Implementacion del metodo de la clase abstracta
-    void obtenerinfo(){
-            cout << "La informacion sera enviada a su correo electronico.";
+    // Implementation of the method from the abstract class
+    void getInfo(){
+            cout << "The information will be sent to your email.";
     }
 
-    virtual void Contrato(){ // Al hacerla virtual, obligamos a que las hijas hagan una implementacion del metodo contrato() para aplicar polimorfismo,
-                    // De lo contrario, se usa la implementacion del padre.
-        cout << "Cargando sus datos en la plataforma..." << endl;
+    virtual void Contract(){ // Making it virtual forces the child classes to implement the Contract() method for polymorphism,
+                    // Otherwise, the parent's implementation is used.
+        cout << "Loading your data into the platform..." << endl;
     }
 };
 
-class Motocicletas:AutomovilesAbstracto{  // Motocicletas hereda de AutomovilesAbstracto y su vez es clase padre de otras clases.
+class Motorcycles: public AbstractAutomobile{  // Motorcycles inherits from AbstractAutomobile and is also a parent class of other classes.
 protected:
-    string Numserie;  // Pasamos Nombre a protected para que sus clases hijas puedan acceder a ellas.
-    string Compania;
-    string Direccion;
+    string SerialNumber;  // Made protected so that its child classes can access it.
+    string Company;
+    string Address;
     string Email;
-    int Precio;
+    int Price;
 
 public:
-    // Metodo
-    void Venta(){
-        cout<<"Veta de motocicletas, de la compañia: "<<Compania<<endl;
+    // Method
+    void Sale(){
+        cout<<"Motorcycle sale, from the company: "<<Company<<endl;
     }
 
 
-    //segundo metodo
-    void Contacto(){
-        cout<< Compania <<": Comuniquese con nosotros al correo: "<< Email<<", o visitenos en:"<<Direccion;
+    // Second method
+    void Contact(){
+        cout<< Company <<": Contact us at email: "<< Email<<", or visit us at:"<<Address;
     }
 
 
 
-    Motocicletas(string numserie, string compania, string direccion, string email, int precio){
-        this->Numserie = numserie;
-        this->Compania = compania;
-        this->Direccion = direccion;
+    Motorcycles(string serialNumber, string company, string address, string email, int price){
+        this->SerialNumber = serialNumber;
+        this->Company = company;
+        this->Address = address;
         this->Email =  email;
-        this->Precio = precio;
+        this->Price = price;
 
     }
 
-    // Getters y Setters
-    void SetNumserie(string numserie){
-        this->Numserie = numserie;
+    // Getters and Setters
+    void setSerialNumber(string serialNumber){
+        this->SerialNumber = serialNumber;
     }
 
-    string getNumserie(){
-        return Numserie;
+    string getSerialNumber(){
+        return SerialNumber;
     }
 
-    void setCompania(string compania){
-        this->Compania = compania;
+    void setCompany(string company){
+        this->Company = company;
     }
 
-    string getCompania(){
-        return Compania;
+    string getCompany(){
+        return Company;
     }
 
-    void setDireccion(string direccion){
-        this->Direccion = direccion;
+    void setAddress(string address){
+        this->Address = address;
     }
 
-    string getDireccion(){
-        return Direccion;
+    string getAddress(){
+        return Address;
     }
 
-    void setCorreo(string email){
+    void setEmail(string email){
         this->Email = email;
     }
 
@@ -179,16 +179,16 @@ public:
         return Email;
     }
 
-    void setPrecio(int precio){
-        this->Precio = precio;
+    void setPrice(int price){
+        this->Price = price;
     }
 
-    int getPrecio(){
-        return Precio;
+    int getPrice(){
+        return Price;
     }
 
-    void obtenerinfo(){
-            cout << "Los datos se encuentran en el portafolio que le entregaremos.";
+    void getInfo(){
+            cout << "The data is in the portfolio we will give you.";
     }
 
 
@@ -197,26 +197,26 @@ public:
 };
 
 
-// --------------------------------------------Clases hijas--------------------------------------------
+// --------------------------------------------Child Classes--------------------------------------------
 
-class Ford: public Camionetas {
+class Ford: public SUVs {
 public:
-    string Modelo;
+    string Model;
     string Color;
 
-    // Constructor de la clase hija
-    Ford(string nombre, string compania, string direccion, string contacto, int precio, string modelo, string color)
-        :Camionetas(nombre, compania, direccion, contacto,  precio){  // Aprovecha el constructor del padre.
-           this-> Modelo=modelo;
+    // Child class constructor
+    Ford(string name, string company, string address, string contact, int price, string model, string color)
+        :SUVs(name, company, address, contact,  price){  // Utilizing the parent's constructor.
+           this-> Model=model;
            this->Color=color;
         }
 
-    void setModelo(string modelo){
-       this-> Modelo = modelo;
+    void setModel(string model){
+       this-> Model = model;
     }
 
-    string getModelo(){
-        return Modelo;
+    string getModel(){
+        return Model;
     }
 
     void setColor(string color){
@@ -227,147 +227,147 @@ public:
         return Color;
     }
     
-    void muestramodelo(){
-        cout << "La camioneta " << Nombre << " es de la compañia " << Compania << ", su modelo es: "<< Modelo << endl;
+    void showModel(){
+        cout << "The SUV " << Name << " is from the company " << Company << ", its model is: "<< Model << endl;
     }
 
-    void muestracolor(){
-        cout<< "El color de la camioneta "<<Nombre<<" es: "<<Color<<endl;
+    void showColor(){
+        cout<< "The color of the SUV "<<Name<<" is: "<<Color<<endl;
     }
 };
 
 
-class Nissan: public Camionetas {
+class Nissan: public SUVs {
 public:
-    string Numcilindros;
-    string Numpuertas;
+    string NumCylinders;
+    string NumDoors;
 
-    // Constructor de la clase hija
-    Nissan(string nombre, string compania, string direccion, string contacto, int precio, string numcilindros, string numpuertas)
-        :Camionetas(nombre, compania, direccion, contacto,  precio){  // Aprovecha el constructor del padre.
-           this-> Numcilindros=numcilindros;
-           this->Numpuertas=numpuertas;
+    // Child class constructor
+    Nissan(string name, string company, string address, string contact, int price, string numCylinders, string numDoors)
+        :SUVs(name, company, address, contact,  price){  // Utilizing the parent's constructor.
+           this-> NumCylinders=numCylinders;
+           this->NumDoors=numDoors;
         }
 
-    void setNumcilindros(string numcilindros){
-       this-> Numcilindros = numcilindros;
+    void setNumCylinders(string numCylinders){
+       this-> NumCylinders = numCylinders;
     }
 
-    string getNumcilindros(){
-        return Numcilindros;
+    string getNumCylinders(){
+        return NumCylinders;
     }
 
-    void setNumpuertas(string numpuertas){
-       this-> Numpuertas = numpuertas;
+    void setNumDoors(string numDoors){
+       this-> NumDoors = numDoors;
     }
 
-    string getNumpuertas(){
-        return Numpuertas;
+    string getNumDoors(){
+        return NumDoors;
     }
     
-    void informaNissan(){
-        cout << "La camioneta " << Nombre << " es de la compañia " << Compania << ", cuenta con un total de "<< Numpuertas <<" puertas."<<endl;
+    void infoNissan(){
+        cout << "The SUV " << Name << " is from the company " << Company << ", it has a total of "<< NumDoors <<" doors."<<endl;
     }
 
-    void cilindros(){
-        cout<< "La camioneta "<<Nombre<<" cuenta con "<<Numcilindros<<" cilindros."<<endl;
+    void cylinders(){
+        cout<< "The SUV "<<Name<<" has "<<NumCylinders<<" cylinders."<<endl;
     }
 };
 
 
 
 
-class Italika: public Motocicletas {
+class Italika: public Motorcycles {
 public:
-    string Modelo;
-    string Motor;
+    string Model;
+    string Engine;
 
-    // Constructor de la clase hija
-    Italika(string numserie, string compania, string direccion, string email, int precio, string modelo, string motor)
-        :Motocicletas(numserie, compania, direccion, email, precio){
-            this-> Modelo=modelo;
-            this->Motor=motor;
+    // Child class constructor
+    Italika(string serialNumber, string company, string address, string email, int price, string model, string engine)
+        :Motorcycles(serialNumber, company, address, email, price){
+            this-> Model=model;
+            this->Engine=engine;
         }
 
-    void setModelo(string modelo){
-        this->Modelo = modelo;
+    void setModel(string model){
+        this->Model = model;
     }
 
-    string getModelo(){
-        return Modelo;
+    string getModel(){
+        return Model;
     }
 
-    void setMotor(string motor){
-        this->Motor = motor;
+    void setEngine(string engine){
+        this->Engine = engine;
     }
 
-    string getMotor(){
-        return Motor;
+    string getEngine(){
+        return Engine;
     }
     
     
-    void mustrardatos(){
-        cout << "La motocicleta es de la compañia " << Compania << ", su modelo es: "<< Modelo << ". El numero de serie es: "<<Numserie<<endl;
+    void showData(){
+        cout << "The motorcycle is from the company " << Company << ", its model is: "<< Model << ". The serial number is: "<<SerialNumber<<endl;
     }
 
-    void mostrarmotor(){
-        cout<<"La motocicleta tiene un motor de: "<<Motor<<endl;
+    void showEngine(){
+        cout<<"The motorcycle has an engine of: "<<Engine<<endl;
     }
 };
 
 
-class Honda: public Motocicletas {
+class Honda: public Motorcycles {
 public:
-    string Numfaros;
-    string Cargamax;
+    string NumHeadlights;
+    string MaxLoad;
 
-    // Constructor de la clase hija
-    Honda(string numserie, string compania, string direccion, string email, int precio, string numfaros, string cargamax)
-        :Motocicletas(numserie, compania, direccion, email, precio){
-            this-> Numfaros=numfaros;
-            this->Cargamax=cargamax;
+    // Child class constructor
+    Honda(string serialNumber, string company, string address, string email, int price, string numHeadlights, string maxLoad)
+        :Motorcycles(serialNumber, company, address, email, price){
+            this-> NumHeadlights=numHeadlights;
+            this->MaxLoad=maxLoad;
         }
 
-    void setNumfaros(string numfaros){
-        this->Numfaros = numfaros;
+    void setNumHeadlights(string numHeadlights){
+        this->NumHeadlights = numHeadlights;
     }
 
-    string getNumfaros(){
-        return Numfaros;
+    string getNumHeadlights(){
+        return NumHeadlights;
     }
 
-    void setCargamax(string cargamax){
-        this->Cargamax = cargamax;
+    void setMaxLoad(string maxLoad){
+        this->MaxLoad = maxLoad;
     }
 
-    string getCargamax(){
-        return Cargamax;
+    string getMaxLoad(){
+        return MaxLoad;
     }
     
     
-    void muestracarga(){
-        cout << "La motocicleta es de la compañia " << Compania << ". Puede hasta con un maximo de carga de: "<<Cargamax<<endl;
+    void showLoad(){
+        cout << "The motorcycle is from the company " << Company << ". It can handle a maximum load of: "<<MaxLoad<<endl;
     }
 
-    void faros(){
+    void headlights(){
 
-        cout<<"La motocicleta cuenta con un total de "<<Numfaros<<" faros."<<endl;
+        cout<<"The motorcycle has a total of "<<NumHeadlights<<" headlights."<<endl;
     }
 };
 
 
-//---------------------------------Metodos no miembros de ninguna clase----------------------------------
+//---------------------------------Non-member methods of any class----------------------------------
 
-void aumentarPrecio(Camionetas &camionetas){ // Se esta pasando un objeto como parametro de la funcion (Como referencia para que se apliquen los cambios en el objeto original)
-    int newprecio = camionetas.getPrecio() + 10000;
-    cout << "New Precio: " << newprecio << endl;
-    camionetas.setPrecio(newprecio);
+void increasePrice(SUVs &suvs){ // An object is being passed as a parameter to the function (As a reference so that changes apply to the original object)
+    int newPrice = suvs.getPrice() + 10000;
+    cout << "New Price: " << newPrice << endl;
+    suvs.setPrice(newPrice);
 }
 
-void aumentarPrecio(Motocicletas &motocicletas){ // Se esta pasando un objeto como parametro de la funcion (Como referencia para que se apliquen los cambios en el objeto original)
-    int newprecio = motocicletas.getPrecio() + 3000;
-    cout << "New Precio: " << newprecio << endl;
-    motocicletas.setPrecio(newprecio);
+void increasePrice(Motorcycles &motorcycles){ // An object is being passed as a parameter to the function (As a reference so that changes apply to the original object)
+    int newPrice = motorcycles.getPrice() + 3000;
+    cout << "New Price: " << newPrice << endl;
+    motorcycles.setPrice(newPrice);
 }
 
 
@@ -376,109 +376,107 @@ void aumentarPrecio(Motocicletas &motocicletas){ // Se esta pasando un objeto co
 int main() { 
 
 
-    Camionetas c1 = Camionetas("Montana","Chevrolet", "Santa Rosa Ags", "449-143-11-24", 700000 );
-    c1.presentar();
+    SUVs s1 = SUVs("Explorer","Ford", "Santa Rosa Ags", "449-143-11-24", 700000 );
+    s1.present();
     cout<<"\n";
-    c1.promocion();
+    s1.promotion();
     cout<<"\n";
-    c1.Contrato();
+    s1.Contract();
     cout<<"\n";
-    c1.obtenerinfo();
+    s1.getInfo();
 
   cout<<"\n\n\n\n";
 
-    Ford f1 = Ford("Ranger", "Ford", "Av. Inmortal Aguascalientes Ags.", "449-367-23-11", 190300, "Ranger 2018", "Roja");
-    f1.promocion();
+    Ford f1 = Ford("Ranger", "Ford", "Av. Inmortal Aguascalientes Ags.", "449-367-23-11", 190300, "Ranger 2018", "Red");
+    f1.promotion();
     cout<<"\n";
-    f1.presentar();
+    f1.present();
     cout<<"\n";
-    f1.Contrato();
+    f1.Contract();
     cout<<"\n";
-    f1.muestracolor();
+    f1.showColor();
     cout<<"\n";
-    f1.muestramodelo();
+    f1.showModel();
     cout<<"\n";
-    f1.obtenerinfo();
+    f1.getInfo();
 
     cout<<"\n\n\n\n";
 
-    Nissan n1 = Nissan("X-Trail", "Nissan", "Av. siglo XXI, Aguascalientes, Ags.", "449-456-23-89", 700000, "6", "4");
+    Nissan n1 = Nissan("X-Trail", "Nissan", "Av. Siglo XXI, Aguascalientes, Ags.", "449-456-23-89", 700000, "6", "4");
 
-    n1.presentar();
+    n1.present();
     cout<<"\n";
-    n1.promocion();
+    n1.promotion();
     cout<<"\n";
-    n1.Contrato();
+    n1.Contract();
     cout<<"\n";
-    n1.obtenerinfo();
+    n1.getInfo();
     cout<<"\n";
-    n1.informaNissan();
+    n1.infoNissan();
     cout<<"\n";
-    n1.cilindros();
+    n1.cylinders();
 
     cout<<"\n\n\n\n";
 
-    Motocicletas m1 = Motocicletas("XRT5678WTS34", "Italika", "Palo Altao, El Llano Ags.", "motom@gmail.com", 18000);
-    m1.Venta();
+    Motorcycles m1 = Motorcycles("XRT5678WTS34", "Italika", "Palo Alto, El Llano Ags.", "motom@gmail.com", 18000);
+    m1.Sale();
     cout<<"\n";
-    m1.Contacto();
+    m1.Contact();
     cout<<"\n";
-    m1.obtenerinfo();
+    m1.getInfo();
 
   cout<<"\n\n\n\n";
 
 
-    Italika i1 = Italika("STR4567ORGS", "Italika", "San Francisco, el LLano, Ags.", "italikamots@motos.mx", 20000, "250Z: 2021", "250" );
-    i1.Venta();
+    Italika i1 = Italika("STR4567ORGS", "Italika", "San Francisco, El Llano, Ags.", "italikamots@motos.mx", 20000, "250Z: 2021", "250" );
+    i1.Sale();
     cout<<"\n";
-    i1.Contacto();
+    i1.Contact();
     cout<<"\n";
-    i1.obtenerinfo();
+    i1.getInfo();
     cout<<"\n";
-    i1.mostrarmotor();
+    i1.showEngine();
     cout<<"\n";
-    i1.mustrardatos();
+    i1.showData();
 
     cout<<"\n\n\n\n";
 
 
-    Honda h1 = Honda("RTD456G3000", "Honda", "AV. Convencion, Guadalajara", "hondamots@honda.mots.mx", 35000, "siete", "150kg");
-    h1.Venta();
+    Honda h1 = Honda("RTD456G3000", "Honda", "Av. Convencion, Guadalajara", "hondamots@honda.mots.mx", 35000, "seven", "150kg");
+    h1.Sale();
     cout<<"\n";
-    h1.Contacto();
+    h1.Contact();
     cout<<"\n";
-    h1.obtenerinfo();
+    h1.getInfo();
     cout<<"\n";
-    h1.muestracarga();
+    h1.showLoad();
     cout<<"\n";
-    h1.faros();
+    h1.headlights();
 
      cout<<"\n\n\n\n";
 
 
-    //Metodo no miembro
-    aumentarPrecio(n1);
-    aumentarPrecio(f1);
-     cout<<"La camioneta "<<n1.getNombre()<<" cuesta: "<<n1.getPrecio();
+    //Non-member method
+    increasePrice(n1);
+    increasePrice(f1);
+     cout<<"The SUV "<<n1.getName()<<" costs: "<<n1.getPrice();
     cout<<"\n\n";
-    cout<<"La camioneta "<<f1.getNombre()<<" cuesta: "<<f1.getPrecio();
+    cout<<"The SUV "<<f1.getName()<<" costs: "<<f1.getPrice();
  
 
 
     cout<<"\n\n\n\n";
 
-    //polimorfismo!!
+    //Polymorphism!!
 
-    Camionetas* c2 = &n1;
-    Camionetas* c3 = &f1;
+    SUVs* s2 = &n1;
+    SUVs* s3 = &f1;
 
-    c2->Contrato();
-    c3->Contrato();
+    s2->Contract();
+    s3->Contract();
 
     
     cout<<"\n\n\n\n";
-return 0;
+return 0;
 
 }
-
-

@@ -1,165 +1,151 @@
 /*
+Code created by Francisco Cabral and Erick Alan García Muñoz.
+Created in the programming class on October 11, 2023
 
-Código creado por Francisco Cabral y Erick Alan García Muñoz.
-Creado en la clase de programación el día 11 de Octubre del 2023
+-Copies and friends.
+-Destructors.
+-Overload.
 
-
--Copia y amigas.
--Destructores.
--Sobrecarga.
-
---Programación Avanzada --
---Universidad Panamericana--
-
+--Advanced Programming --
+--Panamerican University--
 */
 
 #include<bits/stdc++.h>
 
-
 using namespace std;
 
-// Clase Coche que representa un coche
-class Coche {
-    private:
-        // Atributos privados del coche
-        string marca;
-        string modelo;
-        int anio;
-        float precio;
-    public:
-
-        // Constructor parametrizado
-        Coche(string m, string mo, int a, float p) {
-            this->marca = m;
-            this->modelo = mo;
-            this->anio = a;
-            this->precio = p;
-        }
-
-
-
-        // Constructor con solo marca y modelo
-        Coche(string m, string mo) {
-            this->marca = m;
-            this->modelo = mo;
-            this->anio = 2023; // Valor por defecto
-            this->precio = 10000.0; // Valor por defecto
-        }
-
-        // Constructor copia
-        Coche(const Coche& c) {
-            this->marca = c.marca;
-            this->modelo = c.modelo;
-            this->anio = c.anio;
-            this->precio = c.precio;
-        }
-
-
-        // Destructor
-        ~Coche() {
-            cout << "El coche " << marca << " " << modelo << " ha sido destruido." << endl;
-        }
-        // Método para mostrar los datos del coche
-        void mostrar() {
-            cout<<"           Datos del coche:         "<<endl;
-            cout << "Marca: " << marca << endl;
-            cout << "Modelo: " << modelo << endl;
-            cout << "Año: " << anio << endl;
-            cout << "Precio: " << precio << endl;
-        }
-
-        // Declaración de la clase Vendedor como amiga
-        friend class Vendedor;
-        // Declaración de la función comparar como amiga
-        friend bool comparar(Coche c1, Coche c2);
-};
-
-// Clase Vendedor que representa un vendedor de coches
-class Vendedor {
-    private:
-        // Atributos privados del vendedor
-        string nombre;
-        string telefono;
-    public:
-        // Constructor parametrizado
-        Vendedor(string n, string t) {
-            this->nombre = n;
-            this->telefono = t;
-        }
-        
-        // Constructor copia
-        Vendedor(const Vendedor& v) {
-            this->nombre = v.nombre;
-            this->telefono = v.telefono;
-        }
-
-        // Destructor
-        ~Vendedor() {
-            cout << "El vendedor " << nombre << " ha sido eliminado." << endl;
-        }
-
-        // Método para vender un coche
-        void vender(Coche& c) {
-            cout << "El vendedor " << nombre << " ha vendido el coche " << c.marca << " " << c.modelo << endl; // Acceso al atributo privado marca y modelo del coche
-            c.precio = 0.0; // Modificación del atributo privado precio del coche
-        }
-};
-
-// Función para comparar dos coches según su año
-bool comparar(Coche c1, Coche c2) {
-    return c1.anio > c2.anio; // Acceso al atributo privado anio de los coches
-}
-
-
-
-
-
-// Función principal
-int main() {
-    // Creación de dos objetos de la clase Coche
-    Coche c1("Ford", "Fiesta", 2023, 900000);
-    Coche c2("Toyota", "Corolla", 2022, 788845);
-
-    // Creación de un objeto de la clase Coche con solo marca y modelo
-    Coche c3("Nissan", "Versa");
-
-    // Creación de un objeto de la clase Coche con el constructor copia
-    Coche c4(c1);
-
-    // Creación de un objeto de la clase Vendedor
-    Vendedor v1("Erick", "449-143-11-24");
-
-    // Creación de un objeto de la clase Vendedor con el constructor copia
-    Vendedor v2(v1);
-
-    // Mostrar los datos de los coches
-    cout << "Datos del primer coche:" << endl;
-    c1.mostrar();
-
-
-    cout << "\nDatos del segundo coche:" << endl;
-    c2.mostrar();
-
-    cout << "\nDatos del tercer coche:" << endl;
-    c3.mostrar();
-
-    cout << "\nDatos del cuarto coche:" << endl;
-    c4.mostrar();
-
-
-    // Comparar los coches según su año
-    if (comparar(c1, c2)) {
-        cout << "\nEl primer coche es más nuevo que el segundo." << endl;
-    } else {
-        cout << "\nEl segundo coche es más nuevo que el primero." << endl;
+// Class Car representing a car
+class Car {
+private:
+    // Private attributes of the car
+    string brand;
+    string model;
+    int year;
+    float price;
+public:
+    // Parameterized constructor
+    Car(string m, string mo, int y, float p) {
+        this->brand = m;
+        this->model = mo;
+        this->year = y;
+        this->price = p;
     }
 
-    
-    // Vender el primer coche
-    v1.vender(c1);
-    // Mostrar los datos del primer coche después de la venta
-    cout << "\nDatos del primer coche después de la venta:" << endl;
-    c1.mostrar();
-    
-    return 0;
+    // Constructor with only brand and model
+    Car(string m, string mo) {
+        this->brand = m;
+        this->model = mo;
+        this->year = 2023; // Default value
+        this->price = 10000.0; // Default value
+    }
+
+    // Copy constructor
+    Car(const Car& c) {
+        this->brand = c.brand;
+        this->model = c.model;
+        this->year = c.year;
+        this->price = c.price;
+    }
+
+    // Destructor
+    ~Car() {
+        cout << "The car " << brand << " " << model << " has been destroyed." << endl;
+    }
+
+    // Method to display car data
+    void show() {
+        cout << "           Car Data:         " << endl;
+        cout << "Brand: " << brand << endl;
+        cout << "Model: " << model << endl;
+        cout << "Year: " << year << endl;
+        cout << "Price: " << price << endl;
+    }
+
+    // Declaration of the class Salesman as a friend
+    friend class Salesman;
+    // Declaration of the compare function as a friend
+    friend bool compare(Car c1, Car c2);
+};
+
+// Class Salesman representing a car salesman
+class Salesman {
+private:
+    // Private attributes of the salesman
+    string name;
+    string phone;
+public:
+    // Parameterized constructor
+    Salesman(string n, string t) {
+        this->name = n;
+        this->phone = t;
+    }
+
+    // Copy constructor
+    Salesman(const Salesman& s) {
+        this->name = s.name;
+        this->phone = s.phone;
+    }
+
+    // Destructor
+    ~Salesman() {
+        cout << "The salesman " << name << " has been deleted." << endl;
+    }
+
+    // Method to sell a car
+    void sell(Car& c) {
+        cout << "The salesman " << name << " has sold the car " << c.brand << " " << c.model << endl; // Access to the private attributes brand and model of the car
+        c.price = 0.0; // Modification of the private attribute price of the car
+    }
+};
+
+// Function to compare two cars based on their year
+bool compare(Car c1, Car c2) {
+    return c1.year > c2.year; // Access to the private attribute year of the cars
+}
+
+// Main function
+int main() {
+    // Creating two objects of the class Car
+    Car c1("Ford", "Fiesta", 2023, 900000);
+    Car c2("Toyota", "Corolla", 2022, 788845);
+
+    // Creating an object of the class Car with only brand and model
+    Car c3("Nissan", "Versa");
+
+    // Creating an object of the class Car with the copy constructor
+    Car c4(c1);
+
+    // Creating an object of the class Salesman
+    Salesman s1("Erick", "449-143-11-24");
+
+    // Creating an object of the class Salesman with the copy constructor
+    Salesman s2(s1);
+
+    // Displaying the data of the cars
+    cout << "Data of the first car:" << endl;
+    c1.show();
+
+    cout << "\nData of the second car:" << endl;
+    c2.show();
+
+    cout << "\nData of the third car:" << endl;
+    c3.show();
+
+    cout << "\nData of the fourth car:" << endl;
+    c4.show();
+
+    // Comparing the cars based on their year
+    if (compare(c1, c2)) {
+        cout << "\nThe first car is newer than the second one." << endl;
+    } else {
+        cout << "\nThe second car is newer than the first one." << endl;
+    }
+
+    // Selling the first car
+    s1.sell(c1);
+    // Displaying the data of the first car after the sale
+    cout << "\nData of the first car after the sale:" << endl;
+    c1.show();
+
+    return 0;
 }

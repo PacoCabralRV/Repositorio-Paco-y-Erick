@@ -1,50 +1,43 @@
 /*
-Erick Alan Garcia Muñoz y Francisco Cabral.
-Código elaborado en el examen 29-11-2023, hecho como examen.
+Erick Alan Garcia Muñoz and Francisco Cabral.
+Code developed on the exam date 29-11-2023, created as an exam.
 
-
-Universidad Panamericana
-clase de programación avanzada.
-
+Panamerican University
+Advanced programming class.
 */
 
-//Archivo Gato.h
-#ifndef GATO_H
-#define GATO_H
+// File Cat.h
+#ifndef CAT_H
+#define CAT_H
 
 #include "Animal.h"
 
-class Gato: public Animal {
+class Cat: public Animal {
     private:
-        string raza;
+        string breed;
     public:
-        //Constructor parametrizado
-        Gato(string n, int e, double p, string c, string r): Animal(n, e, p, c) {
-            raza = r;
+        // Parameterized constructor
+        Cat(string n, int e, double p, string c, string b): Animal(n, e, p, c) {
+            breed = b;
         }
-        //Destructor
-        ~Gato() 
-        {
-            cout << "El gato " << nombre << " ha sido destruido" << endl;
+        // Destructor
+        ~Cat() {
+            cout << "The cat " << name << " has been destroyed" << endl;
         }
-        //Getter y setter
-        string getRaza() 
-        {
-            return raza;
+        // Getter and setter
+        string getBreed() {
+            return breed;
         }
-        void setRaza(string r) 
-        {
-            raza = r;
+        void setBreed(string b) {
+            breed = b;
         }
-        //Método propio
-        void maullar() 
-        {
-            cout << "El gato " << nombre << " está maullando" << endl;
+        // Own method
+        void meow() {
+            cout << "The cat " << name << " is meowing" << endl;
         }
-        void ronronear() 
-        {
-        cout << "El gato " << nombre << " está ronroneando" << endl;
-        }
+        void purr() {
+            cout << "The cat " << name << " is purring" << endl;
+        }
 };
 
 #endif

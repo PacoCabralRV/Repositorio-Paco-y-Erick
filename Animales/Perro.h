@@ -1,45 +1,49 @@
 /*
-Erick Alan Garcia Muñoz y Francisco Cabral.
-Código elaborado en el examen 29-11-2023, hecho como examen.
+Erick Alan Garcia Muñoz and Francisco Cabral.
+Code developed on the exam date 29-11-2023, created as an exam.
 
-
-Universidad Panamericana
-clase de programación avanzada.
-
+Panamerican University
+Advanced programming class.
 */
 
-//Archivo Perro.h
-#ifndef PERRO_H
-#define PERRO_H
+// File Dog.h
+#ifndef DOG_H
+#define DOG_H
 
 #include "Animal.h"
 
-class Perro: public Animal {
-    private:
-        string raza;
-    public:
-        //Constructor parametrizado
-        Perro(string n, int e, double p, string c, string r): Animal(n, e, p, c) {
-            raza = r;
-        }
-        //Destructor
-        ~Perro() {
-            cout << "El perro " << nombre << " ha sido destruido" << endl;
-        }
-        //Getter y setter
-        string getRaza() {
-            return raza;
-        }
-        void setRaza(string r) {
-            raza = r;
-        }
-        //Método propio
-        void ladrar() {
-            cout << "El perro " << nombre << " está ladrando" << endl;
-        }
-        void proteger(){
-            cout<<"Mi perro "<< nombre<<" esta cuidando mi casa "<<endl;
-        }
+class Dog : public Animal {
+private:
+    string breed;
+
+public:
+    // Parameterized constructor
+    Dog(string n, int e, double p, string c, string r) : Animal(n, e, p, c) {
+        breed = r;
+    }
+
+    // Destructor
+    ~Dog() {
+        cout << "The dog " << name << " has been destroyed" << endl;
+    }
+
+    // Getter and setter
+    string getBreed() {
+        return breed;
+    }
+
+    void setBreed(string r) {
+        breed = r;
+    }
+
+    // Own method
+    void bark() {
+        cout << "The dog " << name << " is barking" << endl;
+    }
+
+    void protect() {
+        cout << "My dog " << name << " is guarding my house" << endl;
+    }
 };
 
 #endif

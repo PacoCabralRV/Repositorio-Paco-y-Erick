@@ -1,12 +1,10 @@
-
-
-// Erick Alan García Muñoz, 3 de Noviembre.
+// Erick Alan García Muñoz, November 3rd.
 
 /*
 
-Manipuladores en C++, width, fill, setw.
+Manipulators in C++, width, fill, setw.
 
-Excepciones en C++, clase impartida por el prof. Emmanuel Rodríguez.
+Exceptions in C++, a class taught by Prof. Emmanuel Rodríguez.
 
 */
 
@@ -15,43 +13,43 @@ Excepciones en C++, clase impartida por el prof. Emmanuel Rodríguez.
 
 using namespace std;
 
-// Clase que representa una división entre dos números enteros
-class Calculadora {
+// Class representing division between two integers
+class Calculator {
 private:
-    int n1; // Dividendo
+    int n1; // Dividend
     int n2; // Divisor
 public:
-    // Constructor que recibe los dos números y verifica que el divisor no sea cero
-    Calculadora(int n1, int n2) {
+    // Constructor that receives two numbers and verifies that the divisor is not zero
+    Calculator(int n1, int n2) {
         this->n1 = n1;
         this->n2 = n2;
 
         if (n2 == 0) {
-            throw runtime_error("División por cero"); // Viene con la librería <stdexcept>
+            throw runtime_error("Division by zero"); // Comes with the <stdexcept> library
         }
     }
 
-    // Método que devuelve el resultado de la división
-    int div() {
+    // Method that returns the result of the division
+    int divide() {
         return n1 / n2;
     }
 };
 
 int main() {
     try {
-        // Ejemplo de división válida
-        cout << "\n     División #1    \n";
-        Calculadora d1(10, 2);
-        cout << "10 / 2 = " << d1.div() << "\n";
-        // Ejemplo de división inválida
-        cout << "\n     División #2    \n";
-        Calculadora d2(10, 0);
-        cout << "10 / 0 = " << d2.div() << "\n";
+        // Example of valid division
+        cout << "\n     Division #1    \n";
+        Calculator d1(10, 2);
+        cout << "10 / 2 = " << d1.divide() << "\n";
+        // Example of invalid division
+        cout << "\n     Division #2    \n";
+        Calculator d2(10, 0);
+        cout << "10 / 0 = " << d2.divide() << "\n";
     }
     catch (const runtime_error &e) {
-        // Capturar la excepción y mostrar el mensaje de error.
-        cerr << "Error Amigo: " << e.what() << "\n";
+        // Catch the exception and display the error message.
+        cerr << "Error, my friend: " << e.what() << "\n";
     }
 
-    return 0;
+    return 0;
 }
